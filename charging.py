@@ -5,8 +5,6 @@ def ranges_of_current(current_samples):
     length = 1
     list_of_ranges = []
     count_of_values_in_range = []
-    if (samples_count == 0):
-        return list_of_ranges
 	
     current_samples.sort()
     for i in range (1, unique_samples_count + 1):
@@ -14,6 +12,7 @@ def ranges_of_current(current_samples):
         if (i == unique_samples_count or current_samples_unique[i] - current_samples_unique[i - 1] != 1):
             if (length == 1):
                 list_of_ranges.append(str(current_samples_unique[i - length]))
+                count_of_values_in_range.append(1)
             else:
                 temp = (str(current_samples_unique[i - length]) + " - " + str(current_samples_unique[i - 1]))
                 list_of_ranges.append(temp)
